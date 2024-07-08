@@ -95,6 +95,13 @@ header .navbar {
     transform: scale(1.05);
 }
 
+.listing-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
 .listing-card h3 {
     color: #2d9ee2;
     margin-bottom: 10px;
@@ -111,20 +118,17 @@ header .navbar {
 }
 
 .listing-card button:hover {
-    background-color: #d92d58;
+    background-color: #d52d5b;
 }
 
 .orders table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
 }
 
-.orders th,
-.orders td {
+.orders th, .orders td {
     padding: 10px;
     border: 1px solid #ddd;
-    text-align: left;
 }
 
 .orders th {
@@ -132,15 +136,7 @@ header .navbar {
     color: #fff;
 }
 
-.orders tr:nth-child(even) {
-    background-color: #fcf6ea;
-}
-
-.message-list {
-    margin-top: 20px;
-}
-
-.message {
+.message-list .message {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -148,7 +144,145 @@ header .navbar {
     margin-bottom: 20px;
 }
 
-.message h4 {
+.message-list .message h4 {
+    margin-bottom: 10px;
     color: #2d9ee2;
+}
+
+#message-form {
+    display: flex;
+    gap: 10px;
+}
+
+#message-input {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#message-form button {
+    padding: 10px 20px;
+    background-color: #2d9ee2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#message-form button:hover {
+    background-color: #1b7db1;
+}
+
+/* styles.css */
+
+body {
+    font-family: 'Jost', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fcf6ea;
+    color: #333;
+}
+
+header .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #2d9ee2;
+    color: #fff;
+}
+
+header .navbar .logo {
+    height: 50px;
+}
+
+header .navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header .navbar nav ul li {
+    display: inline;
+}
+
+header .navbar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.main-container {
+    display: flex;
+    padding: 20px;
+}
+
+.sidebar {
+    flex: 1;
+    background-color: #2d9ee2;
+    padding: 20px;
+    color: #fff;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
     margin-bottom: 10px;
 }
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.content {
+    flex: 4;
+    padding: 20px;
+    background-color: #fcf6ea;
+}
+
+.available-listings, .orders, .messages {
+    margin-bottom: 40px;
+}
+
+.available-listings h1, .orders h2, .messages h2 {
+    font-family: 'Jivita', serif;
+    color: #2d9ee2;
+}
+
+.listings {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.listing-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.listing-card:hover {
+    transform: translateY(-10px);
+}
+
+.listing-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.listing-card h3 {
+    font-family: 'Jivita', serif;
+    color: #2d9ee2;
+}
+

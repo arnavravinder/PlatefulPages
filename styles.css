@@ -1,0 +1,154 @@
+/* styles.css */
+
+body {
+    font-family: 'Jost', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fcf6ea;
+    color: #333;
+}
+
+header .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #2d9ee2;
+}
+
+.navbar .logo {
+    width: 150px;
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.main-container {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    color: #2d9ee2;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.available-listings h1,
+.orders h2,
+.messages h2 {
+    font-family: 'Jivita', serif;
+    margin-bottom: 20px;
+}
+
+.listings {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.listing-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 20px);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.listing-card:hover {
+    transform: scale(1.05);
+}
+
+.listing-card h3 {
+    color: #2d9ee2;
+    margin-bottom: 10px;
+}
+
+.listing-card button {
+    background-color: #f23967;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.listing-card button:hover {
+    background-color: #d92d58;
+}
+
+.orders table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.orders th,
+.orders td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.orders th {
+    background-color: #2d9ee2;
+    color: #fff;
+}
+
+.orders tr:nth-child(even) {
+    background-color: #fcf6ea;
+}
+
+.message-list {
+    margin-top: 20px;
+}
+
+.message {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.message h4 {
+    color: #2d9ee2;
+    margin-bottom: 10px;
+}

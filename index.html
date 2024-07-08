@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plateful Consumer Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&family=Jivita:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <img src="logo.png" alt="Plateful Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Listings</a></li>
+                    <li><a href="#">Orders</a></li>
+                    <li><a href="#">Messages</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="main-container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#">Available Listings</a></li>
+                <li><a href="#">My Orders</a></li>
+                <li><a href="#">Messages</a></li>
+                <li><a href="#">Profile Settings</a></li>
+            </ul>
+        </aside>
+        <main class="content">
+            <section class="available-listings" data-aos="fade-up">
+                <h1>Available Listings</h1>
+                <div class="listings">
+                    <div class="listing-card" data-aos="fade-up" data-tilt>
+                        <h3>Fresh Apples</h3>
+                        <p>3 kg available</p>
+                        <button>Request</button>
+                    </div>
+                    <div class="listing-card" data-aos="fade-up" data-aos-delay="100" data-tilt>
+                        <h3>Homemade Bread</h3>
+                        <p>2 loaves available</p>
+                        <button>Request</button>
+                    </div>
+                    <div class="listing-card" data-aos="fade-up" data-aos-delay="200" data-tilt>
+                        <h3>Garden Veggies</h3>
+                        <p>5 kg mixed vegetables</p>
+                        <button>Request</button>
+                    </div>
+                </div>
+            </section>
+            <section class="orders" data-aos="fade-up">
+                <h2>My Orders</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Item</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12345</td>
+                            <td>Fresh Apples</td>
+                            <td>Pending</td>
+                            <td>2024-07-08</td>
+                        </tr>
+                        <tr>
+                            <td>12346</td>
+                            <td>Homemade Bread</td>
+                            <td>Completed</td>
+                            <td>2024-07-07</td>
+                        </tr>
+                        <tr>
+                            <td>12347</td>
+                            <td>Garden Veggies</td>
+                            <td>Pending</td>
+                            <td>2024-07-06</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section class="messages" data-aos="fade-up">
+                <h2>Messages</h2>
+                <div class="message-list">
+                    <div class="message" data-aos="fade-up" data-tilt>
+                        <h4>From: John Doe</h4>
+                        <p>Hi, I'd like to request some apples. Are they still available?</p>
+                    </div>
+                    <div class="message" data-aos="fade-up" data-aos-delay="100" data-tilt>
+                        <h4>From: Jane Smith</h4>
+                        <p>Can I pick up the bread tomorrow?</p>
+                    </div>
+                    <div class="message" data-aos="fade-up" data-aos-delay="200" data-tilt>
+                        <h4>From: Alice Johnson</h4>
+                        <p>Thank you for the veggies! They were great.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+    <script>
+        AOS.init();
+        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+            max: 25,
+            speed: 400
+        });
+    </script>
+</body>
+</html>

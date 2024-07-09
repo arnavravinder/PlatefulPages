@@ -196,6 +196,21 @@ footer p {
   cursor: pointer;
 }
 
+.increment-decrement {
+  display: flex;
+  align-items: center;
+}
+
+.increment-decrement button {
+  padding: 0.5rem;
+  background: #27ae60;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 0.5rem;
+}
+
 .back-button {
   padding: 0.5rem 1rem;
   background: #ff6f61;

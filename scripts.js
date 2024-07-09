@@ -1,103 +1,105 @@
-document.addEventListener('DOMContentLoaded', function () {
-    AOS.init();
-    VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
-        max: 25,
-        speed: 400
-    });
+AOS.init();
 
-    var firebaseConfig = {
-//add
-}
-    firebase.initializeApp(firebaseConfig);
-    var database = firebase.database();
+const menuData = {
+  'Italian Bistro': [
+    { name: 'Veg Pasta', description: 'Delicious veg pasta', calories: '200 Kcal', date: '2024-07-09', image: 'https://via.placeholder.com/100x100' },
+    { name: 'Non-Veg Pizza', description: 'Delicious non-veg pizza', calories: '300 Kcal', date: '2024-07-09', image: 'https://via.placeholder.com/100x100' },
+  ],
+  'Chinese Delight': [
+    { name: 'Veg Noodles', description: 'Delicious veg noodles', calories: '250 Kcal', date: '2024-07-09', image: 'https://via.placeholder.com/100x100' },
+    { name: 'Non-Veg Manchurian', description: 'Delicious non-veg manchurian', calories: '350 Kcal', date: '2024-07-09', image: 'https://via.placeholder.com/100x100' },
+  ],
+  'Indian Spice': [
+    { name: 'Paneer Butter Masala', description: 'Delicious paneer butter masala', calories: '400 Kcal', date: '2024-07-09', image: 'https://via.placeholder.com/100x100' },
+    { name: 'Chicken Tikka', description: 'Delicious chicken tikka', calories: '450 Kcal', date: '2024-07-09', image: 'https://via.placeholder.com/100x100' },
+  ],
+  'Mexican Fiesta': [
+    { name: 'Veg Tacos', description: 'Delicious veg tacos', calories: '300 Kcal', date: '2024-07-09', image: 'https://via.placeholder.com/100x100' },
+    { name: 'Non-Veg Burritos', description: 'Delicious non-veg burritos', calories: '500 Kcal', date: '2024-07-09', image: 'https://via.placeholder.com/100x100' },
+  ],
+};
 
-    database.ref('listings').on('value', function (snapshot) {
-        var listingsContainer = document.querySelector('.listings');
-        listingsContainer.innerHTML = '';
-        snapshot.forEach(function (childSnapshot) {
-            var listing = childSnapshot.val();
-            var listingCard = document.createElement('div');
-            listingCard.classList.add('listing-card');
-            listingCard.setAttribute('data-tilt', '');
-            listingCard.innerHTML = `
-                <img src="${listing.image}" alt="${listing.name}">
-                <h3>${listing.name}</h3>
-                <p>${listing.description}</p>
-                <p>Restaurant: ${listing.restaurant}</p>
-                <button>Order</button>
-            `;
-            listingsContainer.appendChild(listingCard);
-        });
-    });
-
-    database.ref('orders').on('value', function (snapshot) {
-        var ordersTable = document.getElementById('orders-table');
-        ordersTable.innerHTML = '';
-        snapshot.forEach(function (childSnapshot) {
-            var order = childSnapshot.val();
-            var orderRow = document.createElement('tr');
-            orderRow.innerHTML = `
-                <td>${order.orderId}</td>
-                <td>${order.item}</td>
-                <td>${order.status}</td>
-                <td>${order.date}</td>
-            `;
-            ordersTable.appendChild(orderRow);
-        });
-    });
-
-    var selectedBusiness = null;
-    database.ref('businesses').on('value', function (snapshot) {
-        var businessList = document.querySelector('.business-list');
-        businessList.innerHTML = '';
-        snapshot.forEach(function (childSnapshot) {
-            var business = childSnapshot.val();
-            var businessLogo = document.createElement('div');
-            businessLogo.classList.add('business-logo');
-            businessLogo.setAttribute('data-business-id', childSnapshot.key);
-            businessLogo.setAttribute('data-tilt', '');
-            businessLogo.innerHTML = `
-                <img src="${business.logo}" alt="${business.name}">
-                <p>${business.name}</p>
-            `;
-            businessLogo.addEventListener('click', function() {
-                selectedBusiness = childSnapshot.key;
-                loadMessages(selectedBusiness);
-            });
-            businessList.appendChild(businessLogo);
-        });
-    });
-
-    function loadMessages(businessId) {
-        database.ref('messages/' + businessId).on('value', function (snapshot) {
-            var messageList = document.querySelector('.message-list');
-            messageList.innerHTML = '';
-            snapshot.forEach(function (childSnapshot) {
-                var message = childSnapshot.val();
-                var messageDiv = document.createElement('div');
-                messageDiv.classList.add('message');
-                messageDiv.setAttribute('data-tilt', '');
-                messageDiv.innerHTML = `
-                    <h4>From: ${message.sender}</h4>
-                    <p>${message.text}</p>
-                `;
-                messageList.appendChild(messageDiv);
-            });
-        });
+function filterByCuisine(cuisine) {
+  const cards = document.querySelectorAll('.restaurant-card');
+  cards.forEach(card => {
+    if (cuisine === 'all' || card.dataset.cuisine === cuisine) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
     }
+  });
+}
 
-    document.getElementById('message-form').addEventListener('submit', function (event) {
-        event.preventDefault();
-        var messageInput = document.getElementById('message-input');
-        if (selectedBusiness) {
-            var newMessage = {
-                sender: 'Customer',
-                text: messageInput.value
-            };
-            database.ref('messages/' + selectedBusiness).push(newMessage);
-            messageInput.value = '';
-        } else {
-            alert("Please select a business to message.");
-        }
-    });
-});
+function filterVegNonVeg(type) {
+  const cards = document.querySelectorAll('.restaurant-card');
+  cards.forEach(card => {
+    if (card.dataset.veg === type) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+function showRestaurantMenu(name, address, image, timings, distance, vegType) {
+  const restaurantMenu = document.getElementById('restaurant-menu');
+  const mainContent = document.getElementById('main-content');
+  const restaurantName = document.getElementById('restaurant-name');
+  const restaurantAddress = document.getElementById('restaurant-address');
+  const restaurantImage = document.getElementById('restaurant-image');
+  const restaurantTimings = document.getElementById('restaurant-timings');
+  const restaurantDistance = document.getElementById('restaurant-distance');
+  const menuItems = document.querySelector('.menu-items');
+
+  mainContent.style.display = 'none';
+  restaurantMenu.style.display = 'block';
+
+  restaurantName.textContent = name;
+  restaurantAddress.textContent = address;
+  restaurantImage.src = image;
+  restaurantTimings.textContent = timings;
+  restaurantDistance.textContent = distance;
+
+  menuItems.innerHTML = '';
+  const menu = menuData[name];
+  menu.forEach(item => {
+    const menuItem = document.createElement('div');
+    menuItem.className = 'menu-item';
+    menuItem.innerHTML = `
+      <img src="${item.image}" alt="${item.name}">
+      <div class="menu-item-info">
+        <h3>${item.name}</h3>
+        <p>${item.description}</p>
+        <p>${item.calories}</p>
+      </div>
+      <button class="add-to-cart" onclick="addToCart('${item.name}', '${item.description}', '${item.calories}', '${item.image}', '${item.date}')">Add to Cart</button>
+    `;
+    menuItems.appendChild(menuItem);
+  });
+}
+
+function goBack() {
+  const restaurantMenu = document.getElementById('restaurant-menu');
+  const mainContent = document.getElementById('main-content');
+  restaurantMenu.style.display = 'none';
+  mainContent.style.display = 'block';
+}
+
+function addToCart(name, description, calories, image, date) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push({ name, description, calories, image, date });
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartCount();
+}
+
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  document.querySelector('.cart-count').textContent = cart.length;
+}
+
+function goToCart() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  alert(JSON.stringify(cart, null, 2));
+}
+
+window.onload = updateCartCount;

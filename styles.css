@@ -1,288 +1,207 @@
-/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Jost', sans-serif;
+}
 
 body {
-    font-family: 'Jost', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fcf6ea;
-    color: #333;
+  background: #f5f5f5;
+  color: #333;
 }
 
-header .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #2d9ee2;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.navbar .logo {
-    width: 150px;
+header h1 {
+  font-size: 2rem;
+  color: #ff6f61;
 }
 
-.navbar nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+header nav a {
+  color: #ff6f61;
+  text-decoration: none;
+  font-size: 1.2rem;
 }
 
-.navbar nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
+main {
+  padding: 2rem;
 }
 
-.main-container {
-    display: flex;
+.filter {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
 }
 
-.sidebar {
-    width: 250px;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.filter label {
+  font-size: 1.2rem;
+  margin-right: 1rem;
 }
 
-.sidebar ul {
-    list-style: none;
-    padding: 0;
+.filter select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
 }
 
-.sidebar ul li {
-    margin: 20px 0;
+.veg-filter img {
+  width: 24px;
+  height: 24px;
+  margin-left: 1rem;
+  cursor: pointer;
 }
 
-.sidebar ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    display: block;
+.restaurants {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
-.sidebar ul li a:hover {
-    color: #2d9ee2;
+.restaurant-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.content {
-    flex-grow: 1;
-    padding: 20px;
+.restaurant-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
-.available-listings h1,
-.orders h2,
-.messages h2 {
-    font-family: 'Jivita', serif;
-    margin-bottom: 20px;
+.restaurant-info {
+  padding: 1rem;
 }
 
-.listings {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+.restaurant-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
-.listing-card {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: calc(33.333% - 20px);
-    text-align: center;
-    transition: transform 0.3s;
+.restaurant-info p {
+  margin-bottom: 0.5rem;
 }
 
-.listing-card:hover {
-    transform: scale(1.05);
+.veg-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
 }
 
-.listing-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 10px;
+.veg {
+  background-color: #27ae60;
 }
 
-.listing-card h3 {
-    color: #2d9ee2;
-    margin-bottom: 10px;
+.non-veg {
+  background-color: #e74c3c;
 }
 
-.listing-card button {
-    background-color: #f23967;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #fff;
+  color: #333;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.listing-card button:hover {
-    background-color: #d52d5b;
+footer p {
+  font-size: 1rem;
 }
 
-.orders table {
-    width: 100%;
-    border-collapse: collapse;
+.restaurant-menu {
+  display: none;
+  padding: 2rem;
+  background: #f5f5f5;
 }
 
-.orders th, .orders td {
-    padding: 10px;
-    border: 1px solid #ddd;
+.restaurant-details {
+  display: flex;
+  align-items: center;
 }
 
-.orders th {
-    background-color: #2d9ee2;
-    color: #fff;
+.restaurant-details img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  margin-right: 2rem;
 }
 
-.message-list .message {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+.restaurant-details h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
-.message-list .message h4 {
-    margin-bottom: 10px;
-    color: #2d9ee2;
+.restaurant-details p {
+  margin-bottom: 1rem;
+  color: #666;
 }
 
-#message-form {
-    display: flex;
-    gap: 10px;
+.menu-items {
+  margin-top: 2rem;
 }
 
-#message-input {
-    flex-grow: 1;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+.menu-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#message-form button {
-    padding: 10px 20px;
-    background-color: #2d9ee2;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.menu-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 1rem;
 }
 
-#message-form button:hover {
-    background-color: #1b7db1;
+.menu-item-info {
+  flex: 1;
 }
 
-/* styles.css */
-
-body {
-    font-family: 'Jost', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fcf6ea;
-    color: #333;
+.menu-item-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
-header .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #2d9ee2;
-    color: #fff;
+.menu-item-info p {
+  margin-bottom: 0.5rem;
+  color: #666;
 }
 
-header .navbar .logo {
-    height: 50px;
+.add-to-cart {
+  padding: 0.5rem 1rem;
+  background: #ff6f61;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-header .navbar nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+.back-button {
+  padding: 0.5rem 1rem;
+  background: #ff6f61;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 2rem;
 }
-
-header .navbar nav ul li {
-    display: inline;
-}
-
-header .navbar nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-}
-
-.main-container {
-    display: flex;
-    padding: 20px;
-}
-
-.sidebar {
-    flex: 1;
-    background-color: #2d9ee2;
-    padding: 20px;
-    color: #fff;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    margin-bottom: 10px;
-}
-
-.sidebar ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-}
-
-.content {
-    flex: 4;
-    padding: 20px;
-    background-color: #fcf6ea;
-}
-
-.available-listings, .orders, .messages {
-    margin-bottom: 40px;
-}
-
-.available-listings h1, .orders h2, .messages h2 {
-    font-family: 'Jivita', serif;
-    color: #2d9ee2;
-}
-
-.listings {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.listing-card {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.2s;
-}
-
-.listing-card:hover {
-    transform: translateY(-10px);
-}
-
-.listing-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.listing-card h3 {
-    font-family: 'Jivita', serif;
-    color: #2d9ee2;
-}
-

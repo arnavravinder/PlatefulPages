@@ -1,6 +1,6 @@
 CUSTOMER PAGE
-- list of resteraunts
-- filter by cuisine
-- star rating
-- menu
-- veg nonvg indicator
+- list of resteraunts - done
+- filter by cuisine - done
+- star rating !!!
+- menu !-!
+- veg nonvg indicator !done!

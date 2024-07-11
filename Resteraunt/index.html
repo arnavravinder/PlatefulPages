@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+  <header>
+    <h1>Restaurant Dashboard</h1>
+  </header>
+
+  <main>
+    <section id="restaurant-section">
+      <h2>Add/Edit Restaurant</h2>
+      <form id="restaurant-form">
+        <div>
+          <label for="name">Restaurant Name:</label>
+          <input type="text" id="name" required>
+        </div>
+        <div>
+          <label for="cuisine">Cuisine:</label>
+          <input type="text" id="cuisine" required>
+        </div>
+        <div>
+          <label for="rating">Rating:</label>
+          <input type="number" id="rating" step="0.1" min="0" max="5" required>
+        </div>
+        <div>
+          <label for="reviews">Reviews:</label>
+          <input type="number" id="reviews" required>
+        </div>
+        <div>
+          <label for="image">Image:</label>
+          <input type="file" id="image" accept="image/*">
+        </div>
+        <div>
+          <label for="veg-indicator">Veg/Non-Veg:</label>
+          <select id="veg-indicator" required>
+            <option value="veg">Veg</option>
+            <option value="nonveg">Non-Veg</option>
+          </select>
+        </div>
+        <button type="submit">Save</button>
+      </form>
+    </section>
+
+    <section id="menu-section">
+      <h2>Add/Edit Menu</h2>
+      <form id="menu-form">
+        <div>
+          <label for="menu-restaurant">Restaurant:</label>
+          <select id="menu-restaurant" required>
+            <!-- Options will be populated dynamically -->
+          </select>
+        </div>
+        <div>
+          <label for="menu-name">Menu Item Name:</label>
+          <input type="text" id="menu-name" required>
+        </div>
+        <div>
+          <label for="menu-description">Description:</label>
+          <input type="text" id="menu-description" required>
+        </div>
+        <div>
+          <label for="menu-calories">Calories:</label>
+          <input type="number" id="menu-calories" required>
+        </div>
+        <div>
+          <label for="menu-price">Price:</label>
+          <input type="number" id="menu-price" required>
+        </div>
+        <button type="submit">Save</button>
+      </form>
+    </section>
+
+    <section id="restaurants-list">
+      <h2>Restaurants List</h2>
+      <ul id="restaurants"></ul>
+    </section>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

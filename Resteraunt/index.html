@@ -5,86 +5,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Restaurant Dashboard</title>
   <link rel="stylesheet" href="dashboard.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap">
+  <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-messaging.js"></script>
 </head>
 <body>
   <header>
     <h1>Restaurant Dashboard</h1>
   </header>
-
+  
   <main>
-    <section id="restaurant-section">
-      <h2>Add/Edit Restaurant</h2>
-      <form id="restaurant-form">
-        <div>
-          <label for="name">Restaurant Name:</label>
-          <input type="text" id="name" required>
-        </div>
-        <div>
-          <label for="cuisine">Cuisine:</label>
-          <input type="text" id="cuisine" required>
-        </div>
-        <div>
-          <label for="rating">Rating:</label>
-          <input type="number" id="rating" step="0.1" min="0" max="5" required>
-        </div>
-        <div>
-          <label for="reviews">Reviews:</label>
-          <input type="number" id="reviews" required>
-        </div>
-        <div>
-          <label for="image">Image:</label>
-          <input type="file" id="image" accept="image/*">
-        </div>
-        <div>
-          <label for="veg-indicator">Veg/Non-Veg:</label>
-          <select id="veg-indicator" required>
-            <option value="veg">Veg</option>
-            <option value="nonveg">Non-Veg</option>
-          </select>
-        </div>
-        <button type="submit">Save</button>
+    <section id="onboarding">
+      <h2>Welcome to the Restaurant Dashboard</h2>
+      <form id="onboardingForm">
+        <label for="restaurantName">Restaurant Name:</label>
+        <input type="text" id="restaurantName" name="restaurantName" required>
+
+        <label for="restaurantAddress">Restaurant Address:</label>
+        <input type="text" id="restaurantAddress" name="restaurantAddress" required>
+
+        <label for="restaurantImage">Restaurant Image:</label>
+        <input type="file" id="restaurantImage" name="restaurantImage" required>
+
+        <button type="submit">Submit</button>
       </form>
     </section>
 
-    <section id="menu-section">
-      <h2>Add/Edit Menu</h2>
-      <form id="menu-form">
-        <div>
-          <label for="menu-restaurant">Restaurant:</label>
-          <select id="menu-restaurant" required>
-            <!-- Options will be populated dynamically -->
-          </select>
-        </div>
-        <div>
-          <label for="menu-name">Menu Item Name:</label>
-          <input type="text" id="menu-name" required>
-        </div>
-        <div>
-          <label for="menu-description">Description:</label>
-          <input type="text" id="menu-description" required>
-        </div>
-        <div>
-          <label for="menu-calories">Calories:</label>
-          <input type="number" id="menu-calories" required>
-        </div>
-        <div>
-          <label for="menu-price">Price:</label>
-          <input type="number" id="menu-price" required>
-        </div>
-        <button type="submit">Save</button>
-      </form>
-    </section>
+    <section id="dashboard" style="display: none;">
+      <h2>Menu Items</h2>
+      <button id="addItemBtn">Add New Item</button>
 
-    <section id="restaurants-list">
-      <h2>Restaurants List</h2>
-      <ul id="restaurants"></ul>
+      <div id="menuItemsContainer"></div>
+
+      <div id="itemModal" class="modal" style="display: none;">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <form id="itemForm">
+            <input type="hidden" id="itemId" name="itemId">
+
+            <label for="itemName">Item Name:</label>
+            <input type="text" id="itemName" name="itemName" required>
+
+            <label for="itemDescription">Item Description:</label>
+            <textarea id="itemDescription" name="itemDescription" required></textarea>
+
+            <label for="itemCalories">Calories:</label>
+            <input type="number" id="itemCalories" name="itemCalories" required>
+
+            <label for="itemPrice">Price:</label>
+            <input type="number" id="itemPrice" name="itemPrice" required>
+
+            <label for="itemImage">Item Image:</label>
+            <input type="file" id="itemImage" name="itemImage">
+
+            <label for="itemVeg">Vegetarian:</label>
+            <select id="itemVeg" name="itemVeg">
+              <option value="veg">Veg</option>
+              <option value="non-veg">Non-Veg</option>
+            </select>
+
+            <button type="submit">Save Item</button>
+          </form>
+        </div>
+      </div>
     </section>
   </main>
+  
+  <footer>
+    <p>&copy; 2024 Plateful</p>
+  </footer>
 
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js"></script>
   <script src="dashboard.js"></script>
 </body>
 </html>

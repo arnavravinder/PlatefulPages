@@ -1,81 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Restaurant Dashboard</title>
-  <link rel="stylesheet" href="dashboard.css">
-  <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-storage.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-messaging.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plateful - Join Us</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 </head>
 <body>
-  <header>
-    <h1>Restaurant Dashboard</h1>
-  </header>
-  
-  <main>
-    <section id="onboarding">
-      <h2>Welcome to the Restaurant Dashboard</h2>
-      <form id="onboardingForm">
-        <label for="restaurantName">Restaurant Name:</label>
-        <input type="text" id="restaurantName" name="restaurantName" required>
+    <header>
+        <nav>
+            <div class="nav-logo">
+                <h1>Plateful</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#" id="dark-mode-toggle">🌞</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="join-us">
+            <h1>Join Plateful and Grow Your Business</h1>
+            <p>Partner with us to reach more customers and increase your sales. Our platform makes it easy for restaurants to offer their meals to a broader audience.</p>
+            <button id="join-us-btn">Join Us</button>
+        </section>
+        <section class="features">
+            <div class="feature" data-aos="fade-up">
+                <img src="flexible.png" alt="Flexible">
+                <h2>Flexible</h2>
+                <p>No need to predict what food won’t sell. Fill the Magic Bag with your daily surplus - whatever it ends up being.</p>
+            </div>
+            <div class="feature" data-aos="fade-up" data-aos-delay="100">
+                <img src="fast.png" alt="Fast">
+                <h2>Fast</h2>
+                <p>Simply pre-set your daily quantity of Magic Bags, and let it roll into next week automatically. No item-by-item uploads necessary.</p>
+            </div>
+            <div class="feature" data-aos="fade-up" data-aos-delay="200">
+                <img src="easy.png" alt="Easy">
+                <h2>Easy</h2>
+                <p>There’s no extra equipment required, no impact to your day-to-day operations. We’ll put you online in five minutes, so you can start saving food straight away.</p>
+            </div>
+        </section>
+    </main>
 
-        <label for="restaurantAddress">Restaurant Address:</label>
-        <input type="text" id="restaurantAddress" name="restaurantAddress" required>
-
-        <label for="restaurantImage">Restaurant Image:</label>
-        <input type="file" id="restaurantImage" name="restaurantImage" required>
-
-        <button type="submit">Submit</button>
-      </form>
-    </section>
-
-    <section id="dashboard" style="display: none;">
-      <h2>Menu Items</h2>
-      <button id="addItemBtn">Add New Item</button>
-
-      <div id="menuItemsContainer"></div>
-
-      <div id="itemModal" class="modal" style="display: none;">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <form id="itemForm">
-            <input type="hidden" id="itemId" name="itemId">
-
-            <label for="itemName">Item Name:</label>
-            <input type="text" id="itemName" name="itemName" required>
-
-            <label for="itemDescription">Item Description:</label>
-            <textarea id="itemDescription" name="itemDescription" required></textarea>
-
-            <label for="itemCalories">Calories:</label>
-            <input type="number" id="itemCalories" name="itemCalories" required>
-
-            <label for="itemPrice">Price:</label>
-            <input type="number" id="itemPrice" name="itemPrice" required>
-
-            <label for="itemImage">Item Image:</label>
-            <input type="file" id="itemImage" name="itemImage">
-
-            <label for="itemVeg">Vegetarian:</label>
-            <select id="itemVeg" name="itemVeg">
-              <option value="veg">Veg</option>
-              <option value="non-veg">Non-Veg</option>
-            </select>
-
-            <button type="submit">Save Item</button>
-          </form>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Join Plateful</h2>
+            <form id="onboarding-form" action="https://formspree.io/YOUR_FORMSPREE_URL" method="POST">
+                <label for="restaurant-name">Restaurant Name:</label>
+                <input type="text" id="restaurant-name" name="restaurant-name" required>
+                <label for="restaurant-email">Email:</label>
+                <input type="email" id="restaurant-email" name="restaurant-email" required>
+                <label for="restaurant-phone">Phone:</label>
+                <input type="tel" id="restaurant-phone" name="restaurant-phone" required>
+                <label for="restaurant-address">Address:</label>
+                <input type="text" id="restaurant-address" name="restaurant-address" required>
+                <label for="restaurant-google-profile">Google Profile URL:</label>
+                <input type="url" id="restaurant-google-profile" name="restaurant-google-profile">
+                <button type="submit">Submit</button>
+            </form>
         </div>
-      </div>
-    </section>
-  </main>
-  
-  <footer>
-    <p>&copy; 2024 Plateful</p>
-  </footer>
+    </div>
 
-  <script src="dashboard.js"></script>
+    <footer>
+        <p>&copy; 2024 Plateful. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

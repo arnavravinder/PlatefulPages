@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&family=Jivita:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <img src="logo.png" alt="Plateful Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="index.html#listings">Listings</a></li>
+                    <li><a href="index.html#orders">Orders</a></li>
+                    <li><a href="#">Messages</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="main-container">
+        <main class="content">
+            <section class="messages" id="messages" data-aos="fade-up">
+                <h2>Messages</h2>
+                <div class="business-list">
+                </div>
+                <div class="message-list">
+                </div>
+                <form id="message-form">
+                    <input type="text" id="message-input" placeholder="Type a message">
+                    <button type="submit">Send</button>
+                </form>
+            </section>
+        </main>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Jost', sans-serif;
+}
+
+body {
+  background: #f5f5f5;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2rem;
+  color: #ff6f61;
+}
+
+header nav a {
+  color: #ff6f61;
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin-left: 1rem;
+}
+
+main {
+  padding: 2rem;
+  flex: 1;
+}
+
+.auth-section {
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.auth-section h2, .auth-section h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.auth-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-section form input, .auth-section form select, .auth-section form textarea {
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.auth-section form button {
+  padding: 0.75rem;
+  background: #ff6f61;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.auth-section form button:hover {
+  background: #e65a50;
+}
+
+.menu-items ul {
+  list-style: none;
+}
+
+.menu-items li {
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #fff;
+  color: #333;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom scrollbar */
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+  border: 3px solid #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
